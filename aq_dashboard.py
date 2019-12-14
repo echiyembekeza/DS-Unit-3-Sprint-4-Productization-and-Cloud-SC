@@ -30,7 +30,7 @@ def root():
     """Base view."""
     records = Record.query.filter(Record.value >= 10).all()
     return render_template('base.html',
-                           city='Los Angeles',
+                           city=city,
                            records=records)
 
 @APP.route('/refresh')
