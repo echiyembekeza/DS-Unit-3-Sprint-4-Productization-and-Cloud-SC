@@ -28,6 +28,8 @@ def get_measurements(city='Los Angeles', parameter='pm25'):
 @APP.route('/')
 def root():
     """Base view."""
+    DB.drop_all()
+    DB.create_all()
     records = Record.query.filter(Record.value >= 10).all()
     return render_template('base.html',
                            city='Los Angeles',
